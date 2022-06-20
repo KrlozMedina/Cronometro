@@ -4,49 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/styles/style.css">
-    <link rel="stylesheet" href="/src/projects/cronometro/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <!-- <link rel="stylesheet" href="/src/projects/cronometro/style.css"> -->
     <title>Cronometro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate&display=swap" rel="stylesheet">    
 </head>
 <body>
     <header class="header">
-        <div class="header-logo">
+        <!-- <div class="header-logo">
             <img src="../../../assets/Logo.png" alt="logo">
-            <!-- <h1>KrlozMedina</h1> -->
+            <h1>KrlozMedina</h1>
         </div>
         <nav class="header-links">
             <a href="../../index.html">About me</a>
             <a href="/src/projects.html">Projects</a>
             <a href="/">Contact</a>
-        </nav>
+        </nav> -->
     </header>
-    <main class="reloj">
-        <div id="reloj">
+
+    <main>
+        <section id="clock">
             <h1>Chronometer</h1>
-            <p>
-                <span id="hours">00</span>:<span id="minuts">00</span>:<span id="seconds">00</span>
+            <p class="clock-digital">
+                <span id="hours">00</span>:<span id="minuts">00</span>:<span id="seconds">00</span>.<span id="miliseconds">00</span>
             </p>
-            <div>
+            <div class="container-controls">
                 <button type="button" onclick="startChronometer()" style="background-color: green;">Start</button>
                 <button type="button" onclick="stopChronometer()" style="background-color: red;">Stop</button>
                 <button type="button" onclick="resetChronometer()" style="background-color: yellow;">Reset</button>
             </div>
-        </div>
+        </section>
+        <section id="selectClock">
+            <button type="button" id="chronometer-button"
+            title="Chronometer" onclick="executeChronometer()">
+                <img src="./assets/cronometro.png" alt="">
+            </button>
+            <button type="button" id="timer-button"
+            title='Timer' onclick="executeTimer()">
+                <img src="./assets/temporizador.png" alt="">
+            </button>
+            <button type="button" id="pomodoro-button"
+            title="Pomodoro" onclick="executePomodoro()">
+                <img src="./assets/pomodoro.png" alt="">
+            </button>
+        </section>
     </main>
-    <section id="selectClock">
-        <div>
-            <button type="button" id="chronometer-button" onclick="executeChronometer()">
-                <img src="/src/projects/cronometro/cronometro.png" alt="">
-            </button>
-            <button type="button" id="timer-button" onclick="executeTimer()">
-                <img src="/src/projects/cronometro/temporizador.png" alt="">
-            </button>
-            <button type="button" id="pomodoro-button" onclick="executePomodoro()">
-                <img src="/src/projects/cronometro/pomodoro.png" alt="">
-            </button>
-        </div>
-    </section>
-    <script src="/src/projects/cronometro/index.js"></script>
+
+    <footer>
+
+    </footer>
+    
+    <script src="./src/index.js"></script>
 </body>
 </html>
 
