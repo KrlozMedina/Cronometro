@@ -47,8 +47,10 @@ function stopChronometer(){
 }
 
 function resetChronometer(){
+    // console.log(typeof(currentInterval));
+
     clearInterval(currentInterval);
-    currentButton.disabled = false;
+    // currentButton.disabled = false;
     milisecondsValue = 0;
     milisecondsSpan.textContent = '00';
     secondsValue = 0;
