@@ -47,6 +47,8 @@ function stopChronometer(){
 }
 
 function resetChronometer(){
+    clearInterval(currentInterval);
+    currentButton.disabled = false;
     milisecondsValue = 0;
     milisecondsSpan.textContent = '00';
     secondsValue = 0;
@@ -142,6 +144,8 @@ function stopTimer(){
 }
 
 function executeChronometer(){
+    stopTimer();
+
     clock.innerHTML =`
     <h1>Chronometer</h1>
     <p class="clock-digital">
@@ -152,6 +156,7 @@ function executeChronometer(){
         <button type="button" onclick="stopChronometer()" style="background-color: red;">Stop</button>
         <button type="button" onclick="resetChronometer()" style="background-color: yellow;">Reset</button>
     </div>`
+
     hourSpan = document.querySelector('#hours');
     secondsSpan = document.querySelector('#seconds');
     minutsSpan = document.querySelector('#minuts');
@@ -159,6 +164,8 @@ function executeChronometer(){
 }
 
 function executeTimer(){
+    resetChronometer();
+
     clock.innerHTML =`
     <h1>Timer</h1>
     <p class="clock-digital">
@@ -174,6 +181,8 @@ function executeTimer(){
             <button type="submit" style="background-color: green;">Start</button>
         </div>
     </form>`;
+
+    hourSpan = document.querySelector('#hours');
     secondsSpan = document.querySelector('#seconds');
     minutsSpan = document.querySelector('#minuts');
 }
