@@ -12,6 +12,20 @@ let timerButton = document.querySelector('#timer-button');
 const clock = document.querySelector('#clock');
 let currentInterval;
 let currentButton;
+let menu = false;
+
+function handleMenu(){
+    const menuSpan = document.getElementById('menu');
+    if (menu) {
+        menuSpan.classList.remove('header--nav');
+        menuSpan.classList.add('header--nav-none');
+
+    } else {
+        menuSpan.classList.add('header--nav')
+        menuSpan.classList.remove('header--nav-none')
+    }
+    menu = !menu;
+}
 
 function formatValue(value){
     return ("0" + value).slice(-2);
