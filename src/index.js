@@ -1,15 +1,16 @@
-let hourSpan = document.querySelector('#hours');
-let minutsSpan = document.querySelector('#minuts');
-let secondsSpan = document.querySelector('#seconds');
-let milisecondsSpan = document.querySelector('#miliseconds');
+// let hourpan = document.querySelector('#hour');
+// let minutpan = document.querySelector('#minut');
+// let secondpan = document.querySelector('#second');
+let milisecondSpan = document.querySelector('#milisecond');
 
-let hoursValue = 0;
-let minutsValue = 0;
-let secondsValue = 0;
-let milisecondsValue = 0;
+
+let hourValue = 0;
+let minutValue = 0;
+let secondValue = 0;
+let milisecondValue = 0;
 
 let timerButton = document.querySelector('#timer-button');
-const clock = document.querySelector('#clock');
+const clock = document.querySelector('.clock');
 let currentInterval;
 let currentButton;
 let menu = false;
@@ -31,27 +32,55 @@ function formatValue(value){
     return ("0" + value).slice(-2);
 }
 
+let dateSpan = document.getElementById('date')
+let daySpan = document.getElementById('day');
+let monthSpan = document.getElementById('month');
+let yearSpan = document.getElementById('year')
+let hourSpan = document.getElementById('hour');
+let minutSpan = document.getElementById('minut')
+let secondSpan = document.getElementById('second')
+
+const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'wednesday', 'Thursday', 'Friday', 'Saturday']
+const monthString = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+function date(){
+    currentInterval = setInterval(() => {
+        let today = new Date();
+        dateSpan.textContent = dayOfWeek[today.getDay()]
+        // daySpan.textContent = moment().format('DD MMM YYYY');
+        daySpan.textContent = formatValue(today.getUTCDate() - 1)
+        // clockSpan.textContent = moment().format('H:mm:ss')
+        monthSpan.textContent = monthString[today.getMonth()]
+        yearSpan.textContent = today.getFullYear()
+        hourSpan.textContent = formatValue(today.getHours())
+        minutSpan.textContent = formatValue(today.getMinutes())
+        secondSpan.textContent = formatValue(today.getSeconds())
+
+        // console.log(today.toString())
+    }, 1000);
+}
+
 function startChronometer(){
     currentButton = event.target;
     currentButton.disabled = true;
     currentInterval = setInterval(() => {
-        milisecondsValue++;
-        if(milisecondsValue === 100){
-            milisecondsValue = 0;
-            secondsValue++;
-            if(secondsValue === 60){
-                secondsValue = 0;
-                minutsValue++;
-                if(minutsValue === 60){
-                    minutsValue = 0;
-                    hoursValue++;
-                    hourSpan.textContent = formatValue(hoursValue);
+        milisecondValue++;
+        if(milisecondValue === 100){
+            milisecondValue = 0;
+            secondValue++;
+            if(secondValue === 60){
+                secondValue = 0;
+                minutValue++;
+                if(minutValue === 60){
+                    minutValue = 0;
+                    hourValue++;
+                    hourSpan.textContent = formatValue(hourValue);
                 }
-                minutsSpan.textContent = formatValue(minutsValue);
+                minutSpan.textContent = formatValue(minutValue);
             }
-            secondsSpan.textContent = formatValue(secondsValue);
+            secondSpan.textContent = formatValue(secondValue);
         }
-        milisecondsSpan.textContent = formatValue(milisecondsValue);
+        milisecondSpan.textContent = formatValue(milisecondValue);
     }, 10);
 }
 
@@ -65,13 +94,13 @@ function resetChronometer(){
 
     clearInterval(currentInterval);
     // currentButton.disabled = false;
-    milisecondsValue = 0;
-    milisecondsSpan.textContent = '00';
-    secondsValue = 0;
-    secondsSpan.textContent = "00";
-    minutsValue = 0;
-    minutsSpan.textContent = "00";
-    hoursValue = 0;
+    milisecondValue = 0;
+    milisecondSpan.textContent = "00";
+    secondValue = 0;
+    secondSpan.textContent = "00";
+    minutValue = 0;
+    minutSpan.textContent = "00";
+    hourValue = 0;
     hourSpan.textContent = "00";
 }
 
@@ -87,56 +116,56 @@ function valueIsNull(value){
 function startTimer(){
     event.preventDefault();
 
-    const hours = valueIsNull(event.target.hours.value);
-    const minutes = valueIsNull(event.target.minutes.value);
-    const seconds = valueIsNull(event.target.seconds.value);
+    const hour = valueIsNull(event.target.hour.value);
+    const minute = valueIsNull(event.target.minute.value);
+    const second = valueIsNull(event.target.second.value);
 
-    // console.log(hours, minutes, seconds);
+    // console.log(hour, minutes, seconds);
 
-    containerButton = document.querySelector('.container-controls');
-    containerButton.innerHTML = '';
+    clockButton = document.querySelector('.clock-controls');
+    clockButton.innerHTML = '';
     button = document.createElement('button');
     button.type = 'button';
     button.style.backgroundColor = 'red';
     button.textContent = 'Stop';
     button.onclick = () => stopTimer();
-    containerButton.appendChild(button);
+    clockButton.appendChild(button);
 
     // console.log('start');
     
     // console.log(minutes, seconds);
-    hourSpan.textContent = formatValue(hours);
-    minutsSpan.textContent = formatValue(minutes);
-    secondsSpan.textContent = formatValue(seconds);
+    hourSpan.textContent = formatValue(hour);
+    minutSpan.textContent = formatValue(minute);
+    secondSpan.textContent = formatValue(second);
 
-    hoursValue = hours;
-    secondsValue = seconds;
-    minutsValue = minutes;
+    hourValue = hour;
+    secondValue = second;
+    minutValue = minute;
 
-    if(hoursValue == null){
+    if(hourValue == null){
         console.log('entro');
     }
 
     currentInterval = setInterval(() => {
-        if(secondsValue === 0){
-            if(minutsValue === 0){
-                if(hoursValue === 0){
+        if(secondValue === 0){
+            if(minutValue === 0){
+                if(hourValue === 0){
                     stopTimer();
                     console.log('El timer ha termiando')
                 } else {
-                    hoursValue--;
+                    hourValue--;
                     minutesValue = 59;
                 }
             } else {
-                minutsValue--;
-                secondsValue = 59;
+                minutValue--;
+                secondValue = 59;
             }
         } else {
-            secondsValue--;
+            secondValue--;
         }
-        secondsSpan.textContent = formatValue(secondsValue);
-        minutsSpan.textContent = formatValue(minutsValue);
-        hourSpan.textContent = formatValue(hoursValue);
+        secondSpan.textContent = formatValue(secondValue);
+        minutSpan.textContent = formatValue(minutValue);
+        hourSpan.textContent = formatValue(hourValue);
     }, 1000);
 }
 
@@ -144,19 +173,19 @@ function stopTimer(){
     // event.preventDefault();
     // console.log('stop');
     clearInterval(currentInterval);
-    minutsSpan.textContent = '00';
-    secondsSpan.textContent = '00';
-    secondsValue = 0;
-    minutsValue = 0;
+    minutSpan.textContent = '00';
+    secondSpan.textContent = '00';
+    secondValue = 0;
+    minutValue = 0;
 
-    containerButton = document.querySelector('.container-controls');
-    containerButton.innerHTML = '';
+    clockButton = document.querySelector('.clock-controls');
+    clockButton.innerHTML = '';
     button = document.createElement('button');
     button.type = 'submit';
     button.style.backgroundColor = 'green';
     button.textContent = 'Start';
     // button.onclick = () => startTimer();
-    containerButton.appendChild(button);
+    clockButton.appendChild(button);
 }
 
 function executeChronometer(){
@@ -165,41 +194,42 @@ function executeChronometer(){
     clock.innerHTML =`
     <h1>Chronometer</h1>
     <p class="clock-digital">
-        <span id="hours">00</span>:<span id="minuts">00</span>:<span id="seconds">00</span>.<span id="miliseconds">00</span>
+        <span id="hour">00</span>:<span id="minut">00</span>:<span id="second">00</span>.<span id="milisecond">00</span>
     </p>
-    <div class="container-controls">
+    <div class="clock-controls">
         <button type="button" onclick="startChronometer()" style="background-color: green;">Start</button>
         <button type="button" onclick="stopChronometer()" style="background-color: red;">Stop</button>
         <button type="button" onclick="resetChronometer()" style="background-color: yellow;">Reset</button>
     </div>`
 
-    hourSpan = document.querySelector('#hours');
-    secondsSpan = document.querySelector('#seconds');
-    minutsSpan = document.querySelector('#minuts');
-    milisecondsSpan = document.querySelector('#miliseconds');
+    hourSpan = document.querySelector('#hour');
+    secondSpan = document.querySelector('#second');
+    minutSpan = document.querySelector('#minut');
+    milisecondSpan = document.querySelector('#milisecond');
 }
 
 function executeTimer(){
     resetChronometer();
-
+    
     clock.innerHTML =`
     <h1>Timer</h1>
     <p class="clock-digital">
-        <span id="hours">00</span>:<span id="minuts">00</span>:<span id="seconds">00</span>
+        <span id="hour">00</span>:<span id="minut">00</span>:<span id="second">00</span>
     </p>
     <form class="formControls" onsubmit="startTimer()">
-        <div class="container-inputs">
-            <input type="number" placeholder="Hrs" id="hoursInput" name="hours">
-            <input type="number" placeholder="Min" id="minutsInput" name="minutes">
-            <input type="number" placeholder="Sec" id="secondsInput" name="seconds">
+        <div class="clock-inputs">
+            <input type="number" placeholder="Hrs" id="hourInput" name="hour">
+            <input type="number" placeholder="Min" id="minutInput" name="minute">
+            <input type="number" placeholder="Sec" id="secondInput" name="second">
         </div>
-        <div class="container-controls">
+        <div class="clock-controls">
             <button type="submit" style="background-color: green;">Start</button>
         </div>
     </form>`;
 
-    hourSpan = document.querySelector('#hours');
-    secondsSpan = document.querySelector('#seconds');
-    minutsSpan = document.querySelector('#minuts');
+    hourSpan = document.querySelector('#hour');
+    secondSpan = document.querySelector('#second');
+    minutSpan = document.querySelector('#minut');
 }
 
+date()
