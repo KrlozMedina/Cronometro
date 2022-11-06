@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
-    <title>Cronometro</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link href="https://fonts.googleapis.com/css2?family=Fascinate&display=swap" rel="stylesheet"> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />  
+    <title>Clock</title>
 </head>
 <body>
     <header class="header">
@@ -25,32 +25,48 @@
         <nav id="menu" class='header--nav-none'>
             <ul>
                 <li>
-                    <a href="https://krlozmedina.com/#home">Inicio</a>
-                    <a href="https://krlozmedina.com/#aboutme">Sobre mi</a>
-                    <a href="https://krlozmedina.com/#projects">Proyectos</a>
-                    <a href="https://krlozmedina.com/#education">Educacion</a>
-                    <a href="https://krlozmedina.com/#contactme">Contactame</a>
+                    <a href="https://krlozmedina.com/#home">Home</a>
+                    <a href="https://krlozmedina.com/#aboutme">About me</a>
+                    <a href="https://krlozmedina.com/#projects">Projects</a>
+                    <a href="https://krlozmedina.com/#education">Education</a>
+                    <a href="https://krlozmedina.com/#contactme">Contact me</a>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <main class="container">
-        <section id="clock">
+    <main class="container-clock">
+        <section class="clock">
+            <!-- <h1>Clock</h1> -->
+
+            <p class="clock-digital">
+                <span id="date"></span>
+            </p>
+            
+            <p class="clock-digital">
+                <span id="day"></span> <span id="month"></span> <span id="year"></span>
+            </p>
+
+            <p class="clock-digital">
+                <span id="hour"></span>:<span id="minut"></span>:<span id="second"></span>
+            </p>
+        </section>
+
+        <section class="none">
             <h1>Chronometer</h1>
             
             <p class="clock-digital">
-                <span id="hours">00</span>:<span id="minuts">00</span>:<span id="seconds">00</span>.<span id="miliseconds">00</span>
+                <span id="hours">00</span>:<span id="minuts">00</span>:<span id="seconds">00</span>.<span id="milisecond">00</span>
             </p>
 
-            <div class="container-controls">
+            <div class="clock-controls">
                 <button type="button" onclick="startChronometer()" style="background-color: green;">Start</button>
                 <button type="button" onclick="stopChronometer()" style="background-color: red;">Stop</button>
                 <button type="button" onclick="resetChronometer()" style="background-color: yellow;">Reset</button>
             </div>
         </section>
 
-        <section id="selectClock">
+        <section class="clock-select">
             <button type="button" id="chronometer-button"
             title="Chronometer" onclick="executeChronometer()">
                 <img src="./assets/cronometro.png" alt="">
@@ -74,7 +90,6 @@
             <a href="https://www.tiktok.com/@krlozmedina" class="footer-logo tiktok"></a>
         </div>
     </footer>
-    
     <script src="./src/index.js"></script>
 </body>
 </html>
