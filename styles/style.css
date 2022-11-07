@@ -108,23 +108,42 @@ body{
 }
 
 .clock-digital{
+    /* width: 80%; */
     font-size: 4rem;
-    color: var(--color-font);
+    /* color: var(--color-font); */
     font-family: var(--font-number);
     /* margin-top: 2rem; */
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    /* gap: 2rem; */
+    margin: 0.5rem auto;
+}
+
+.clock-digital div{
+    /* width: 7rem; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 0 1rem;
+}
+
+.clock-digital div h6{
+    font-size: 1.5rem;
+    margin-bottom: -1.5rem;
+    text-align: center;
 }
 
 #miliseconds{
     font-size: 2.5rem;
 }
 
-/* --------------------------------- */
-
 .clock-controls{
     width: 100%;
     display: inline-flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .clock-controls button{
@@ -169,16 +188,25 @@ body{
     justify-content: center;
 }
 
+#selectForDate{
+    width: 50%;
+    background-color: #00000007;
+    color: var(--color-font);
+    font-size: 1.5rem;
+    border: black 0.1rem solid;
+    border-radius: 0.5rem;
+}
+
 .clock-inputs{
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 3rem;
-    margin-top: 3rem;
+    margin: 1.5rem auto;
 }
 
 .clock-inputs input{
-    width: 5rem;
+    width: 5.5rem;
     height: 3rem;
     text-align: center;
     font-family: var(--font-text);
@@ -187,6 +215,11 @@ body{
     font-weight: bolder;
     font-size: 2.5rem;
     color: var(--color-background);
+}
+
+.clock-inputs input::placeholder{
+    font-size: 1.8rem;
+    text-align: center;
 }
 
 footer{
@@ -207,7 +240,6 @@ footer{
 .footer-logo{
     width: 2.5rem;
     height: 2.5rem;
-    /* margin: 1.5rem auto; */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

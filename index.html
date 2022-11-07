@@ -5,11 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link href="https://fonts.googleapis.com/css2?family=Fascinate&display=swap" rel="stylesheet"> 
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />  
     <title>Clock</title>
@@ -37,34 +33,50 @@
 
     <main class="container-clock">
         <section class="clock">
-            <!-- <h1>Clock</h1> -->
-
             <p class="clock-digital">
                 <span id="date"></span>
             </p>
             
             <p class="clock-digital">
-                <span id="day"></span> <span id="month"></span> <span id="year"></span>
+                <span id="day"></span>-<span id="month"></span>-<span id="year"></span>
             </p>
 
             <p class="clock-digital">
-                <span id="hour"></span>:<span id="minut"></span>:<span id="second"></span>
+                <span id="hour"></span>:<span id="minut"></span>:<span id="second"></span><span id="milisecond"></span>
             </p>
+
+            <div class="clock-controls"></div>
         </section>
 
-        <section class="none">
-            <h1>Chronometer</h1>
+        <!-- <section class="clock">
+            <h1>Time until</h1>
             
-            <p class="clock-digital">
-                <span id="hours">00</span>:<span id="minuts">00</span>:<span id="seconds">00</span>.<span id="milisecond">00</span>
-            </p>
-
-            <div class="clock-controls">
-                <button type="button" onclick="startChronometer()" style="background-color: green;">Start</button>
-                <button type="button" onclick="stopChronometer()" style="background-color: red;">Stop</button>
-                <button type="button" onclick="resetChronometer()" style="background-color: yellow;">Reset</button>
+            <div class="clock-digital">
+                <div><h6>Years</h6><span id="year">00</span></div>
+                <div><h6>Months</h6><span id="month">00</span></div>
+                <div><h6>Days</h6><span id="day">00</span></div>
             </div>
-        </section>
+
+            <div class="clock-digital">
+                <div><h6>Hours</h6><span id="hour">00</span></div>
+                <div><h6>Minuts</h6><span id="minut">00</span></div>
+                <div><h6>Seconds</h6><span id="second">00</span></div>
+            </div>
+
+            <form action="submit" class="formControls">
+                <div class="clock-inputs">
+                    <input type="text" placeholder="Day">
+                    <input type="text" placeholder="Month">
+                    <input type="text" placeholder="Year">
+                </div>
+            </form>
+
+            <select id="selectForDate" name="forDate" id="">
+                <option value="christmas">Christmas</option>
+                <option value="birthday">My birthday</option>
+                <option value="endYear">End of year</option>
+            </select>
+        </section> -->
 
         <section class="clock-select">
             <button type="button" id="chronometer-button"
@@ -75,6 +87,11 @@
             <button type="button" id="timer-button"
             title='Timer' onclick="executeTimer()">
                 <img src="./assets/temporizador.png" alt="">
+            </button>
+
+            <button type="button" id="forDate-button"
+            title='Time until' onclick="executeForDate()">
+                <img src="./assets/forDate.png" alt="">
             </button>
         </section>
     </main>
