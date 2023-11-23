@@ -343,7 +343,7 @@ function executeForDate(){
         <option value="christmas">Christmas</option>
         <option value="birthday">Krloz's birthday</option>
         <option value="endYear">End of year</option>
-        <option valur="princessDay">Princess's Day</option>
+        <option value="princessDay">Princess's Day</option>
     </select>
     <div class="clock-controls"></div>
     `
