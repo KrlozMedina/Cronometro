@@ -246,6 +246,9 @@ function dateMain(){
         case 'endYear':
             timeFor(31, 12);
             break;
+        case 'princessDay':
+            timeFor(18, 1);
+            break;
         default:
             break;
     }
@@ -340,6 +343,7 @@ function executeForDate(){
         <option value="christmas">Christmas</option>
         <option value="birthday">Krloz's birthday</option>
         <option value="endYear">End of year</option>
+        <option valur="princessDay">Princess's Day</option>
     </select>
     <div class="clock-controls"></div>
     `
