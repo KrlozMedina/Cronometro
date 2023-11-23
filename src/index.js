@@ -247,7 +247,7 @@ function dateMain(){
             timeFor(31, 12);
             break;
         case 'princessDay':
-            timeFor(18, 1);
+            timeFor(18, 12);
             break;
         default:
             break;
