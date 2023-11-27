@@ -198,10 +198,10 @@ function timeFor(day, month, year) {
             day = today.getDate()
         }
 
-        let hoy = new Date(year - 1, month - 1, day)
+        let hoy = new Date(year, month, day)
 
         if (hoy < today) {
-            year = today.getFullYear + 1;
+            year = today.getFullYear() + 1;
         }
 
         console.log(day, month, year)
