@@ -225,7 +225,7 @@ function timeFor(day, month, year) {
 
 function dateMain(){
     let dateMain = document.getElementById('selectForDate')
-    // console.log(dateMain.value)
+    console.log(dateMain.value)
     clearInterval(currentInterval);
 
     inputDay = document.getElementById('dayInput');
