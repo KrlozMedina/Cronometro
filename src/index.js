@@ -198,6 +198,16 @@ function timeFor(day, month, year) {
             day = today.getDate()
         }
 
+        let hoy = new Date(year - 1, month - 1, day)
+
+        if (hoy < today) {
+            year = today.getFullYear + 1;
+        }
+
+        console.log(day, month, year)
+
+        // console.log(today.get)
+
         let date = new Date(year, month, day);
         let forDate = date.getTime() - today.getTime()
 
@@ -265,7 +275,7 @@ function setDate(){
     let setMonth = parseInt(inputMonth.value) || today.getMonth() + 1;
     let setYear = parseInt(inputYear.value) || today.getFullYear();
 
-    console.log(setDay, setMonth, setYear)
+    // console.log(setDay, setMonth, setYear)
 
     clearInterval(currentInterval);
     timeFor(setDay, setMonth, setYear)
