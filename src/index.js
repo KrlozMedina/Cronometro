@@ -204,8 +204,8 @@ function timeFor(day, month, year) {
             year = today.getFullYear() + 1;
         }
 
-        console.log("hoy es:")
-        console.log(day, month, year)
+        // console.log("hoy es:")
+        // console.log(day, month, year)
 
         // console.log(today.get)
 
