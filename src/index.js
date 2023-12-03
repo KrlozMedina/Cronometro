@@ -212,6 +212,8 @@ function timeFor(day, month, year) {
         let date = new Date(year, month, day);
         let forDate = date.getTime() - today.getTime()
 
+        // console.log(date.getMonth() - today.getMonth())
+
         let miliseconds = forDate % 1000
         let secondsForDate = (forDate - miliseconds) / 1000;        
         let seconds = secondsForDate % 60;
@@ -220,10 +222,12 @@ function timeFor(day, month, year) {
         let hoursForDate = (minutsForDate - minuts) / 60
         let hours = hoursForDate % 24;
         let daysForDate = (hoursForDate - hours) / 24
-        let days = daysForDate % 30;
-        let monthsForDate = (daysForDate - days) / 30
+        let days = Math.floor(daysForDate % 30.44);
+        let monthsForDate = Math.floor((daysForDate - days) / 30.44)
         let months = monthsForDate % 12
         let yearsForDate = (monthsForDate - months) / 12
+        // let yearsForDate = forDate.getFullYear()
+
     
         yearSpan.textContent = yearsForDate;
         monthSpan.textContent = months;
@@ -236,7 +240,7 @@ function timeFor(day, month, year) {
 
 function dateMain(){
     let dateMain = document.getElementById('selectForDate')
-    console.log(dateMain.value)
+    // console.log(dateMain.value)
     clearInterval(currentInterval);
 
     inputDay = document.getElementById('dayInput');
